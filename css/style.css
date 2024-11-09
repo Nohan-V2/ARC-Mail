@@ -14,10 +14,6 @@
 
 body {
     min-height: 100vh;
-}
-
-.navigate,
-.sidebar {
     padding: 8px;
     background-color: var(--body);
 }
@@ -26,6 +22,29 @@ body {
     display: flex;
     align-items: center;
     flex-direction: row;
+}
+
+.left-nav,
+.right-nav {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.left-nav {
+    gap: 8px;
+    margin-right: auto;
+}
+
+.svg-hover {
+    width: 24px;
+    height: 24px;
+}
+
+.navigate img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .pinned {
