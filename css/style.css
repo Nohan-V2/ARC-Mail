@@ -9,7 +9,9 @@
 
 :root {
     --body: #8377fc;
-    --screen: #fefefe;
+    --screen: #F5F5F7;
+    --police-black: rgba(0, 0, 0, 0.7);
+    --police-white: rgba(255, 255, 255, 0.7);
     --border: rgba(255, 255, 255, 0.12);
     --shadow: rgba(0, 0, 0, 0.25);
 }
@@ -28,13 +30,12 @@ main {
     display: flex;
     flex-direction: row;
     width: 100%;
-    margin: 8px;
 }
 
 .sidebar {
     padding: 10px 8px 0px 0px;
     width: 222px;
-    height: 95vh;
+    height: 98vh;
     border-radius: 12px;
     background-color: transparent;
 }
@@ -78,8 +79,25 @@ main {
     object-fit: cover;
 }
 
-.search-favourite {
+.search {
     margin-bottom: 16px;
+}
+
+.grid-favourite {
+    grid-template-columns: 3fr;
+    gap: 12px;
+}
+
+.favourite {
+    width: 48px;
+    height: 48px;
+}
+
+.favourite img {
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .space-top {
@@ -93,6 +111,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    height: 74vh;
 }
 
 .pinned-folder {
@@ -103,10 +122,16 @@ main {
     flex-direction: row;
     align-items: center;
     padding: 12px 10px;
+    cursor: pointer;
+    transition: all ease 0.3s;
 }
 
 .pinned-folder:hover {
     background-color: var(--border);
+}
+
+.pinned-folder p {
+    margin-right: auto;
 }
 
 .pinned-folder .svg-hover {
@@ -122,39 +147,28 @@ main {
     opacity: 0%;
 }
 
-.pinned-folder .svg-hover img:first-child {
-    opacity: 0%;
-}
-
-.pinned-folder .svg-hover:hover img:nth-child(2) {
-    opacity: 100%;
-}
-
-.favourite img {
-    width: 20px;
-}
-
-.screen {
-    border: 1px solid var(--border);
-    filter: drop-shadow(0 4 4 var(--shadow));
-    border-radius: 12px;
-    width: 100%;
-    height: 97vh;
-    background-color: var(--screen);
-    box-shadow: 0px 4px 4px 0px var(--shadow);
-}
-
-.header {
-    padding: 20px 40px;
-}
-
-.header img {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    object-fit: cover;
+.pinned-tab {
+    display: flex;
+    flex-direction: row;
 }
 
 .footer {
     margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+.spaces-bottom {
+    margin-right: auto;
+}
+
+.screen {
+    border: 1px solid var(--border);
+    box-shadow: 0px 4px 4px 0px var(--shadow);
+    border-radius: 12px;
+    width: 100%;
+    height: 98vh;
+    background-color: var(--screen);
 }
