@@ -1,175 +1,261 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ARC Mail</title>
-    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/normalize.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <main>
-      <div class="sidebar">
-        <div class="navigate">
-          <div class="left-nav">
-            <img src="./images/favicon/Arc.svg" alt="Logo du navigateur" />
 
-            <img
-              class="sidebar-button"
-              src="./images/favicon/Sidebar.svg"
-              alt="Sidebar"
-            />
-          </div>
-          <div class="right-nav">
-            <img src="./images/favicon/Columns.svg" alt="Columns" />
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>ARC Mail</title>
+	<link rel="shortcut icon" href="./images/Arc__browser__logo.svg-removebg-preview.png" type="image/x-icon" />
+	<link rel="stylesheet" href="./css/normalize.css" />
+	<link rel="stylesheet" href="./css/style.css" />
+</head>
 
-            <img src="./images/favicon/Pen-square.svg" alt="Pen-square" />
-          </div>
-        </div>
+<body>
+	<header>
+		<div class="contain-action-button">
+			<div class="contain-two-action-button">
+				<img src="./images/favicon/Arc.svg" alt="Logo du navigateur ARC" />
+				<img class="sidebar-button" src="./images/favicon/Sidebar.svg" alt="Sidebar bouton toggle" class="button-small-side-bar"/>
+			</div>
 
-        <div class="search-onglet">
-          <div class="search">
-            <input
-              type="search"
-              name="search"
-              id="search"
-              placeholder="Rechercher une discussion..."
-            />
-          </div>
+			<div class="contain-two-action-button">
+				<img src="./images/favicon/Columns.svg" alt="Columns" />
+				<img src="./images/favicon/Pen-square.svg" alt="Pen-square" />
+			</div>
+		</div>
 
-          <grid class="grid-favourite">
-            <div class="favourite">
-              <img
-                src="./images/social/Divann mon quoicoubibou.jpg"
-                alt="profil"
-              />
-            </div>
+		<div class="contain-contact">
+			<label for="search-contact">
+				<img src="./images/favicon/Search.svg" alt="search icon" />
+				<input type="search" name="search-contact" id="search-contact" placeholder="Search for a discussion" />
+			</label>
 
-            <div class="favourite">
-              <img
-                src="./images/social/Divann mon quoicoubibou.jpg"
-                alt="profil"
-              />
-            </div>
+			<div class="contain-pp-contact">
+				<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+				<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+				<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+				<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+				<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+			</div>
+		</div>
 
-            <div class="favourite">
-              <img
-                src="./images/social/Divann mon quoicoubibou.jpg"
-                alt="profil"
-              />
-            </div>
-          </grid>
-        </div>
+		<div class="contain-multi-space">
+			<p class="name-space">pro 😎</p>
+			<select name="space" id="space" class="select-space">
+				<option value="">Inbox</option>
+				<option value="">j sait pas</option>
+			</select>
+		</div>
+		<div class="conv-reseau-all--container">
+			<div class="conv-reseau--container">
+				<div class="discution-container">
+					<div class="discution-img-title-container">
+						<img src="./images/social/instagram.svg" alt="Logo instagram" />
+						<p class="name-reseau-discution">Instagram</p>
+					</div>
+					<div class="action-button-reduce-grow">
+						<img src="./images/favicon/arrow-down.svg" alt="" />
 
-        <div class="onglets">
-          <div class="space-top">
-            <img src="./images/spaces/Code.svg" alt="Code" />
+						<img src="./images/favicon/arrow-up.svg" class="none" alt="" />
+					</div>
+				</div>
+				<div class="conv--contain-all none">
+					<div class="conv--container">
+						<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+						<div class="contain-info-write">
+							<div class="contain-info-name-title">
+								<p class="name-people">Thomas Martin</p>
+								<p class="title-mess-people">proposition réunion</p>
+							</div>
+							<p>Merci pour ta sugestion, exellente idée</p>
+						</div>
+						<div class="contain-info-date-number">
+							<p class="info-date-text">14:22</p>
+						</div>
+					</div>
+					<div class="conv--container">
+						<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+						<div class="contain-info-write">
+							<div class="contain-info-name-title">
+								<p class="name-people">Claire Martin</p>
+								<p class="title-mess-people">proposition réunion</p>
+							</div>
+							<p>Merci pour ta sugestion, exellente idée</p>
+						</div>
+						<div class="contain-info-date-number">
+							<p class="info-date-text">14:22</p>
+						</div>
+					</div>
+					<div class="conv--container">
+						<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+						<div class="contain-info-write">
+							<div class="contain-info-name-title">
+								<p class="name-people">Marie Jean</p>
+								<p class="title-mess-people">proposition réunion</p>
+							</div>
+							<p>Merci pour ta sugestion, exellente idée</p>
+						</div>
+						<div class="contain-info-date-number">
+							<p class="info-date-text">14:22</p>
+						</div>
+					</div>
+					<div class="conv--container">
+						<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+						<div class="contain-info-write">
+							<div class="contain-info-name-title">
+								<p class="name-people">Claire Martin</p>
+								<p class="title-mess-people">proposition réunion</p>
+							</div>
+							<p>Merci pour ta sugestion, exellente idée</p>
+						</div>
+						<div class="contain-info-date-number">
+							<p class="info-date-text">14:22</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="conv-reseau--container">
+				<div class="discution-container">
+					<div class="discution-img-title-container">
+						<img src="./images/social/snapchat.svg" alt="Logo snapchat" />
+						<p class="name-reseau-discution">Snapchat</p>
+					</div>
+					<div class="action-button-reduce-grow">
+						<img src="./images/favicon/arrow-down.svg" alt="" />
 
-            <p>Pro</p>
-          </div>
+						<img src="./images/favicon/arrow-up.svg" class="none" alt="" />
+					</div>
+				</div>
+				<div class="conv--contain-all none">
+					<div class="conv--container">
+						<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+						<div class="contain-info-write">
+							<div class="contain-info-name-title">
+								<p class="name-people">Thomas Martin</p>
+								<p class="title-mess-people">proposition réunion</p>
+							</div>
+							<p>Merci pour ta sugestion, exellente idée</p>
+						</div>
+						<div class="contain-info-date-number">
+							<p class="info-date-text">14:22</p>
+						</div>
+					</div>
+					<div class="conv--container">
+						<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+						<div class="contain-info-write">
+							<div class="contain-info-name-title">
+								<p class="name-people">Claire Martin</p>
+								<p class="title-mess-people">proposition réunion</p>
+							</div>
+							<p>Merci pour ta sugestion, exellente idée</p>
+						</div>
+						<div class="contain-info-date-number">
+							<p class="info-date-text">14:22</p>
+						</div>
+					</div>
+					<div class="conv--container">
+						<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+						<div class="contain-info-write">
+							<div class="contain-info-name-title">
+								<p class="name-people">Marie Jean</p>
+								<p class="title-mess-people">proposition réunion</p>
+							</div>
+							<p>Merci pour ta sugestion, exellente idée</p>
+						</div>
+						<div class="contain-info-date-number">
+							<p class="info-date-text">14:22</p>
+						</div>
+					</div>
+					<div class="conv--container">
+						<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+						<div class="contain-info-write">
+							<div class="contain-info-name-title">
+								<p class="name-people">Claire Martin</p>
+								<p class="title-mess-people">proposition réunion</p>
+							</div>
+							<p>Merci pour ta sugestion, exellente idée</p>
+						</div>
+						<div class="contain-info-date-number">
+							<p class="info-date-text">14:22</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="conv-reseau--container">
+				<div class="discution-container">
+					<div class="discution-img-title-container">
+						<img src="./images/social/gmail.svg" alt="Logo gmail" />
+						<p class="name-reseau-discution">Gmail</p>
+					</div>
+					<div class="action-button-reduce-grow">
+						<img src="./images/favicon/arrow-down.svg" alt="" />
 
-          <div class="pinned">
-            <div class="pinned-folder">
-              <img src="./images/social/instagram.svg" alt="instagram" />
+						<img src="./images/favicon/arrow-up.svg" class="none" alt="" />
+					</div>
+				</div>
+				<div class="conv--contain-all none">
+					<div class="conv--container">
+						<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+						<div class="contain-info-write">
+							<div class="contain-info-name-title">
+								<p class="name-people">Thomas Martin</p>
+								<p class="title-mess-people">proposition réunion</p>
+							</div>
+							<p>Merci pour ta sugestion, exellente idée</p>
+						</div>
+						<div class="contain-info-date-number">
+							<p class="info-date-text">14:22</p>
+						</div>
+					</div>
+					<div class="conv--container">
+						<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+						<div class="contain-info-write">
+							<div class="contain-info-name-title">
+								<p class="name-people">Claire Martin</p>
+								<p class="title-mess-people">proposition réunion</p>
+							</div>
+							<p>Merci pour ta sugestion, exellente idée</p>
+						</div>
+						<div class="contain-info-date-number">
+							<p class="info-date-text">14:22</p>
+						</div>
+					</div>
+					<div class="conv--container">
+						<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+						<div class="contain-info-write">
+							<div class="contain-info-name-title">
+								<p class="name-people">Marie Jean</p>
+								<p class="title-mess-people">proposition réunion</p>
+							</div>
+							<p>Merci pour ta sugestion, exellente idée</p>
+						</div>
+						<div class="contain-info-date-number">
+							<p class="info-date-text">14:22</p>
+						</div>
+					</div>
+					<div class="conv--container">
+						<img src="./images/social/Divann mon quoicoubibou.jpg" alt="profil" />
+						<div class="contain-info-write">
+							<div class="contain-info-name-title">
+								<p class="name-people">Claire Martin</p>
+								<p class="title-mess-people">proposition réunion</p>
+							</div>
+							<p>Merci pour ta sugestion, exellente idée</p>
+						</div>
+						<div class="contain-info-date-number">
+							<p class="info-date-text">14:22</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-              <p>Instgram</p>
+	</header>
 
-              <div class="svg-hover">
-                <img src="./images/favicon/arrow-down.svg" alt="" />
+	<main></main>
 
-                <img src="./images/favicon/arrow-up.svg" alt="" />
-              </div>
-            </div>
+	<script src="./js/sidebar.js"></script>
+	<script src="js/search-person.js"></script>
+</body>
 
-            <div class="pinned-folder">
-              <img src="./images/social/discord.svg" alt="discord" />
-
-              <p>Discord</p>
-
-              <div class="svg-hover">
-                <img src="./images/favicon/arrow-down.svg" alt="" />
-
-                <img src="./images/favicon/arrow-up.svg" alt="" />
-              </div>
-            </div>
-
-            <div class="pinned-folder">
-              <img src="./images/social/messages.svg" alt="messages" />
-
-              <p>Messages</p>
-
-              <div class="svg-hover">
-                <img src="./images/favicon/arrow-down.svg" alt="" />
-
-                <img src="./images/favicon/arrow-up.svg" alt="" />
-              </div>
-            </div>
-
-            <div class="pinned-folder">
-              <img src="./images/social/snapchat.svg" alt="snapchat" />
-
-              <p>Snapchat</p>
-
-              <div class="svg-hover">
-                <img src="./images/favicon/arrow-down.svg" alt="" />
-
-                <img src="./images/favicon/arrow-up.svg" alt="" />
-              </div>
-            </div>
-
-            <div class="pinned-folder">
-              <img src="./images/social/whatsapp.svg" alt="whatsapp" />
-
-              <p>WhatsApp</p>
-
-              <div class="svg-hover">
-                <img src="./images/favicon/arrow-down.svg" alt="" />
-
-                <img src="./images/favicon/arrow-up.svg" alt="" />
-              </div>
-            </div>
-
-            <div class="pinned-folder">
-              <img src="./images/social/gmail.svg" alt="gmail" />
-
-              <p>Gmail</p>
-
-              <div class="svg-hover">
-                <img src="./images/favicon/arrow-down.svg" alt="" />
-
-                <img src="./images/favicon/arrow-up.svg" alt="" />
-              </div>
-            </div>
-
-            <div class="pinned-tab">
-              <div class="text-pinned">
-                <h2>Nohan</h2>
-
-                <p>Je suis passé radiant...</p>
-              </div>
-
-              <span>00:00</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="footer">
-          <div class="spaces-bottom">
-            <div class="svg-hover">
-              <img src="./images/spaces/Code.svg" alt="code" />
-            </div>
-          </div>
-
-          <div class="add">
-            <img src="./images/favicon/Plus.svg" alt="Plus" />
-          </div>
-        </div>
-      </div>
-
-      <div class="screen"></div>
-    </main>
-
-    <script src="js/sidebar.js"></script>
-  </body>
 </html>

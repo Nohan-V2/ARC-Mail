@@ -1,5 +1,5 @@
-const sideBar = document.querySelector(".sidebar");
-const buttonSmallSideBar = document.querySelector(".sidebar-button");
+const sideBar = document.querySelector("header");
+const buttonSmallSideBar = document.querySelector(".button-small-side-bar");
 const containSearchOnglet = document.querySelector(".search-onglet");
 const pinnedContentP = document.querySelectorAll(".pinned-folder p");
 const pinnedContentDiv = document.querySelectorAll(".pinned-folder div");
