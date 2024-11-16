@@ -131,7 +131,7 @@ const toggleSidebar = () => {
       img.style.padding = "";
 
       if (img.closest(".conv--container")) {
-        img.style.margin = "0px";
+        img.style.margin = "";
       }
 
       // Restaurer le style du label si c'est une image de recherche
