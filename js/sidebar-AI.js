@@ -11,7 +11,7 @@ const toggleSidebar = () => {
 
   if (!isExpanded) {
     // Réduire la sidebar
-    header.style.width = "40px";
+    header.style.width = "4vw";
     header.style.padding = "10px 0px";
 
     // Cacher uniquement les textes et éléments de texte
@@ -42,38 +42,48 @@ const toggleSidebar = () => {
     containersToColumn.forEach((selector) => {
       const containers = header.querySelectorAll(selector);
       containers.forEach((container) => {
+        container.style.display = "flex";
         container.style.flexDirection = "column";
         container.style.alignItems = "center";
-        container.style.gap = "16px";
         container.style.width = "100%";
+
+        // Modifie le gap pour les conteneurs spécifiques
+        if (container.classList.contains("contain-pp-contact")) {
+          container.style.gap = "8px"; // Définit le gap à 8px pour contain-pp-contact
+        } else if (container.classList.contains("contain-two-action-button")) {
+          container.style.gap = "0px";
+        } else if (container.classList.contains("discution-container")) {
+          container.style.gap = "4px"; // Définit le gap à 0px pour discution-container
+          container.style.padding = "4px 8px";
+        } else {
+          container.style.gap = "8px"; // Définit le gap à 16px pour les autres éléments
+        }
       });
     });
 
     // Gérer les images de manière spécifique
     const allImages = header.querySelectorAll("img");
     allImages.forEach((img) => {
-      // Images par défaut à 32px
-      img.style.width = "32px";
-      img.style.height = "32px";
-
       // Si c'est une image dans un label (input search)
       if (img.closest("label")) {
-        img.style.padding = "8px";
         img.parentElement.style.background = "rgba(255, 255, 255, 0.12)";
         img.parentElement.style.width = "100%";
         img.parentElement.style.justifyContent = "center";
-        img.parentElement.style.borderRadius = "8px";
+      }
+
+      if (img.closest(".conv--container")) {
+        img.style.margin = "0px";
       }
 
       // Si c'est une image de profil (dans contain-pp-contact)
       if (img.closest(".contain-pp-contact")) {
-        img.style.width = "36px";
-        img.style.height = "36px";
+        img.style.width = "100%";
+        img.style.height = "48px";
       }
     });
   } else {
     // Restaurer la sidebar
-    header.style.width = "25vw";
+    header.style.width = "30vw";
     header.style.padding = "10px 8px 0px 0px";
 
     // Réafficher les éléments cachés
@@ -104,6 +114,8 @@ const toggleSidebar = () => {
     containersToRestore.forEach((selector) => {
       const containers = header.querySelectorAll(selector);
       containers.forEach((container) => {
+        container.style.padding = "";
+        container.style.display = "";
         container.style.flexDirection = "";
         container.style.alignItems = "";
         container.style.gap = "";
@@ -117,6 +129,10 @@ const toggleSidebar = () => {
       img.style.width = "";
       img.style.height = "";
       img.style.padding = "";
+
+      if (img.closest(".conv--container")) {
+        img.style.margin = "0px";
+      }
 
       // Restaurer le style du label si c'est une image de recherche
       if (img.closest("label")) {

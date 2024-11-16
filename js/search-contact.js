@@ -1,51 +1,117 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const searchInput = document.querySelector("#search-contact");
-  const convContainers = document.querySelectorAll(".conv--contain-all");
+  const searchInput = document.getElementById("search-contact");
+  const convContainers = document.querySelectorAll(".conv--container");
+  const contactContainer = document.querySelector(
+    ".conv-reseau-all--container"
+  );
+  const header = document.querySelector("header"); // Sélection du header pour la hauteur de référence
 
-  // Cacher tous les conteneurs `.conv--contain-all` au chargement de la page
-  convContainers.forEach((convContainer) => {
-    convContainer.style.display = "none";
-  });
+  // Création de la fenêtre pour afficher les résultats de recherche
+  const searchOverlay = document.createElement("div");
+  searchOverlay.style.position = "absolute";
+  searchOverlay.style.top = `${contactContainer.offsetTop}px`; // Place la fenêtre à partir de .contain-pp-contact
+  searchOverlay.style.left = `${contactContainer.offsetLeft}px`;
+  searchOverlay.style.width = `${contactContainer.offsetWidth}px`;
+  searchOverlay.style.height = `${
+    header.offsetHeight - contactContainer.offsetTop
+  }px`; // Ajuste la hauteur
+  searchOverlay.style.backgroundColor = "var(--police-black)"; // Semi-transparent
+  searchOverlay.style.overflowY = "auto"; // Permet de scroller verticalement
+  searchOverlay.style.zIndex = "1000"; // Au-dessus du contenu
+  searchOverlay.style.display = "none"; // Cachée par défaut
+  searchOverlay.style.transition = "opacity 0.3s ease, transform 0.3s ease"; // Animation
+  searchOverlay.style.opacity = "0";
+  searchOverlay.style.transform = "translateY(-10px)";
+  document.body.appendChild(searchOverlay);
 
-  // Affiche les résultats de recherche lors de la saisie
+  // Écouteur sur la barre de recherche
   searchInput.addEventListener("input", () => {
-    const searchText = searchInput.value.toLowerCase();
+    const query = searchInput.value.toLowerCase().trim();
 
-    convContainers.forEach((convContainer) => {
-      const contacts = convContainer.querySelectorAll(".conv--container");
-      let isAnyContactVisible = false;
+    // Réinitialise les résultats
+    searchOverlay.innerHTML = "";
 
-      contacts.forEach((contact) => {
-        const nameElement = contact.querySelector(".name-people");
-        const name = nameElement.textContent.toLowerCase();
+    if (query) {
+      searchOverlay.style.display = "block";
+      setTimeout(() => {
+        searchOverlay.style.opacity = "1";
+        searchOverlay.style.transform = "translateY(0)";
+      }, 10); // Lancement de l'animation
 
-        if (name.includes(searchText)) {
-          contact.style.display = "flex"; // Affiche le contact correspondant
-          isAnyContactVisible = true;
-        } else {
-          contact.style.display = "none"; // Masque le contact non correspondant
+      let resultsFound = false;
+
+      convContainers.forEach((container) => {
+        const name = container
+          .querySelector(".name-people")
+          .textContent.toLowerCase();
+
+        if (name.includes(query)) {
+          const clone = container.cloneNode(true);
+          clone.style.padding = "10px"; // Ajout de styles pour les résultats
+          searchOverlay.appendChild(clone);
+          resultsFound = true;
         }
       });
 
-      // Affiche `.conv--contain-all` seulement si un contact correspond
-      convContainer.style.display = isAnyContactVisible ? "flex" : "none";
-    });
-  });
-
-  // Gère l'affichage lors du focus et du blur de l'input
-  searchInput.addEventListener("focus", () => {
-    if (searchInput.value.trim() === "") {
-      convContainers.forEach((convContainer) => {
-        convContainer.style.display = "none";
-      });
+      if (!resultsFound) {
+        searchOverlay.innerHTML =
+          "<p style='color: white; padding: 16px;'>Aucun résultat trouvé.</p>";
+      }
+    } else {
+      // Cache la fenêtre lorsque le champ est vide
+      hideOverlay();
     }
   });
 
+  // Masquer la fenêtre lorsque le champ perd le focus
   searchInput.addEventListener("blur", () => {
-    // Cache tous les `.conv--contain-all` et efface le texte de recherche lorsque l'input perd le focus
-    convContainers.forEach((convContainer) => {
-      convContainer.style.display = "none";
-    });
-    searchInput.value = ""; // Efface le texte dans l'input
+    setTimeout(() => {
+      hideOverlay();
+    }, 200); // Petit délai pour permettre la sélection
   });
+
+  // Afficher la fenêtre de recherche à nouveau lors du focus sur le champ
+  searchInput.addEventListener("focus", () => {
+    const query = searchInput.value.toLowerCase().trim();
+    if (query) {
+      searchOverlay.style.display = "block";
+      setTimeout(() => {
+        searchOverlay.style.opacity = "1";
+        searchOverlay.style.transform = "translateY(0)";
+      }, 10); // Lancement de l'animation
+
+      let resultsFound = false;
+
+      convContainers.forEach((container) => {
+        const name = container
+          .querySelector(".name-people")
+          .textContent.toLowerCase();
+
+        if (name.includes(query)) {
+          const clone = container.cloneNode(true);
+          clone.style.padding = "10px"; // Ajout de styles pour les résultats
+          searchOverlay.appendChild(clone);
+          resultsFound = true;
+        }
+      });
+
+      if (!resultsFound) {
+        searchOverlay.innerHTML =
+          "<p style='color: white; padding: 16px;'>Aucun résultat trouvé.</p>";
+      }
+    } else {
+      // Si le champ est vide, cacher la fenêtre immédiatement
+      hideOverlay();
+    }
+  });
+
+  // Fonction pour masquer la fenêtre avec animation
+  function hideOverlay() {
+    searchOverlay.style.opacity = "0";
+    searchOverlay.style.transform = "translateY(-10px)";
+    setTimeout(() => {
+      searchOverlay.style.display = "none";
+      searchOverlay.innerHTML = ""; // Nettoie les résultats
+    }, 300); // Temps correspondant à la durée de l'animation
+  }
 });

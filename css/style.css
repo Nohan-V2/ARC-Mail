@@ -21,6 +21,14 @@ span {
     letter-spacing: 0px;
 }
 
+p,
+span,
+img,
+h1,
+h2 {
+    user-select: none;
+}
+
 h1,
 h2 {
     font-family: "Poppins", sans-serif;
@@ -39,8 +47,8 @@ h2 {
     --shadow: rgba(0, 0, 0, 0.25);
 }
 
-.none {
-    display: none;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -60,6 +68,7 @@ main {
     background-color: var(--screen);
     height: 98vh;
     border-radius: 8px;
+    box-shadow: 0px 4px 4px 0px var(--shadow);
 }
 
 .sidebar-small {
@@ -75,7 +84,7 @@ header {
     display: flex;
     gap: 16px;
     flex-direction: column;
-    width: 25vw;
+    width: 30vw;
     height: 100%;
     border-radius: 8px;
     background-color: transparent;
@@ -119,13 +128,13 @@ header {
             gap: 12px;
             padding: 8px 12px;
             position: relative;
-            width: calc(100% - 24px);
+            width: 100%;
             border-radius: 12px;
             background-color: var(--border);
 
             img {
-                height: 24px;
-                width: 24px;
+                height: 20px;
+                width: 20px;
             }
 
             input {
@@ -146,15 +155,17 @@ header {
         }
 
         .contain-pp-contact {
+            display: grid;
             gap: 12px;
             width: 100%;
-            display: flex;
+            grid-template-columns: repeat(5, 1fr);
 
             img {
-                width: 48px;
-                height: 48px;
+                width: 52px;
+                height: 52px;
                 border-radius: 12px;
                 object-fit: cover;
+                aspect-ratio: 1/1;
             }
         }
     }
@@ -188,27 +199,80 @@ header {
     display: flex;
     align-items: center;
     flex-direction: row;
-    margin-bottom: 4px;
     justify-content: space-between;
 }
 
 .conv-reseau-all--container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 12px;
+    gap: 4px;
+    overflow-y: scroll;
 }
 
-.conv--container img {
-    width: 24px;
-    height: 24px;
+.conv--contain-all {
+    gap: 8px;
+
+    .conv--container {
+        display: flex;
+        width: 100%;
+        padding: 8px 16px;
+
+        img {
+            margin-right: 16px;
+            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+        }
+
+        .contain-info-name-title {
+            display: flex;
+            align-items: center;
+
+            .name-people {
+                margin-right: 4px;
+            }
+
+            .title-mess-people {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 120px;
+                font-size: 12px;
+                color: rgba(192, 192, 192, 0.8);
+                line-height: auto;
+                letter-spacing: 0px;
+            }
+        }
+
+        .message-people {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 200px;
+        }
+
+        .info-date-text {
+            margin-left: auto;
+        }
+
+    }
 }
 
 .discution-container {
+    width: 100%;
     cursor: pointer;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 4px;
+    padding: 12px 24px 12px 8px;
+    border-radius: 12px;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+
+    &:hover {
+        background-color: var(--border);
+    }
 
     .discution-img-title-container {
         display: flex;
@@ -226,12 +290,21 @@ header {
     }
 
     .action-button-reduce-grow {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        position: relative;
+        width: 24px;
+        height: 24px;
 
         img {
-            width: 24px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
+}
+
+.none {
+    display: none;
 }
