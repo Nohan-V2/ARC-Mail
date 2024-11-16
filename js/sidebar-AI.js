@@ -77,7 +77,7 @@ const toggleSidebar = () => {
 
       // Si c'est une image de profil (dans contain-pp-contact)
       if (img.closest(".contain-pp-contact")) {
-        img.style.width = "100%";
+        img.style.width = "48px";
         img.style.height = "48px";
       }
     });
