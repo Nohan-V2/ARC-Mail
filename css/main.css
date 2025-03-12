@@ -6,19 +6,27 @@
 }
 
 :root {
+  /* Colors */
   --main-bg: rgba(245, 245, 247, 0.55);
   --screen: rgba(245, 245, 247, 1);
   --text-primary: rgba(0, 0, 0, 0.7);
   --text-secondary: rgba(0, 0, 0, 0.4);
   --border: rgba(255, 255, 255, 1);
+
+  /* Image */
+  --image: url("../img/main-bg-light.jpg");
 }
 
 .dark {
+  /* Colors */
   --main-bg: rgba(245, 245, 247, 0.55);
   --screen: rgba(245, 245, 247, 1);
   --text-primary: rgba(0, 0, 0, 0.7);
   --text-secondary: rgba(0, 0, 0, 0.4);
   --border: rgba(255, 255, 255, 1);
+
+  /* Image */
+  --image: url("../img/main-bg-dark.jpg");
 }
 
 html {
