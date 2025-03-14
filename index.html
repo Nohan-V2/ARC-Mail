@@ -16,7 +16,7 @@
           <nav class="navigation">
             <div class="controls">
               <!-- ARC icon -->
-              <div class="icons">
+              <div class="arc-icon-container icons">
                 <svg
                   class="arc-icon"
                   width="24"
@@ -35,7 +35,7 @@
                 </svg>
               </div>
               <!-- sidebar icon -->
-              <div class="icons">
+              <div class="sidebar-icon-container icons">
                 <svg
                   class="sidebar-icon"
                   width="24"
@@ -56,7 +56,7 @@
               </div>
 
               <!-- columns icon -->
-              <div class="icons">
+              <div class="columns-icon-container icons">
                 <svg
                   class="columns-icon"
                   width="24"
@@ -77,9 +77,9 @@
               </div>
             </div>
 
-            <div class="pen-square">
-              <!-- pen square icon -->
-              <div class="icons">
+            <div class="pen-square-container">
+              <!-- Pen Square Icon -->
+              <div class="pen-square-icon-container icons">
                 <svg
                   class="pen-square-icon"
                   width="24"
@@ -102,9 +102,9 @@
           </nav>
 
           <div class="url-and-favs">
-            <div class="search-bar">
+            <label for="search" class="search-bar">
               <!-- search icon -->
-              <label for="search" class="icons">
+              <div class="icons">
                 <svg
                   class="search-icon"
                   width="16"
@@ -122,7 +122,7 @@
                     stroke-opacity="0.4"
                   />
                 </svg>
-              </label>
+              </div>
 
               <input
                 type="text"
@@ -130,15 +130,177 @@
                 id="search"
                 placeholder="Search here..."
               />
-            </div>
+            </label>
 
-            <div class="pinned-favourite"></div>
+            <ul class="pinned-favourite-wrapper">
+              <li class="pinned-favourite-element">
+                <img
+                  src="./img/socials/Divann mon quoicoubibou.jpg"
+                  alt="Divann mon quoicoubibou"
+                  class="profil-pinned"
+                />
+              </li>
+              <li class="pinned-favourite-element">
+                <img
+                  src="./img/socials/Divann mon quoicoubibou.jpg"
+                  alt="Divann mon quoicoubibou"
+                  class="profil-pinned"
+                />
+              </li>
+              <li class="pinned-favourite-element">
+                <img
+                  src="./img/socials/Divann mon quoicoubibou.jpg"
+                  alt="Divann mon quoicoubibou"
+                  class="profil-pinned"
+                />
+              </li>
+
+              <li class="pinned-favourite-element">
+                <img
+                  src="./img/socials/Divann mon quoicoubibou.jpg"
+                  alt="Divann mon quoicoubibou"
+                  class="profil-pinned"
+                />
+              </li>
+
+              <li class="pinned-favourite-element">
+                <img
+                  src="./img/socials/Divann mon quoicoubibou.jpg"
+                  alt="Divann mon quoicoubibou"
+                  class="profil-pinned"
+                />
+              </li>
+            </ul>
           </div>
         </header>
 
-        <main class="main-sidebar"></main>
+        <main class="main-sidebar">
+          <div class="spaces-and-select">
+            <div class="spaces-container">
+              <!-- Space Icon -->
+              <div class="space-icon-container">
+                <svg
+                  class="space-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18 16L22 12L18 8M6 8L2 12L6 16M14.5 4L9.5 20"
+                    stroke="#000"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
 
-        <footer class="footer-sidebar"></footer>
+              <span class="name-space">Code</span>
+            </div>
+
+            <div class="select-container">
+              <select name="select-box" id="select-box">
+                <option value="Inbox" selected>Inbox</option>
+                <option value="Sent">Sent</option>
+                <option value="Spam">Spam</option>
+                <option value="All Mail">All Mail</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="tabs-wrapper">
+            <div class="tab-container">
+              <!-- Img Tab  -->
+              <div class="img-tab-container">
+                <img
+                  src="./img/socials/Divann mon quoicoubibou.jpg"
+                  alt="Divann mon quoicoubibou"
+                  class="profil"
+                />
+              </div>
+
+              <div class="text-tab-wrapper">
+                <div class="profil-tab">
+                  <p class="profil-name">Divann mon quoicoubibou</p>
+
+                  <p class="message-profil">Salut comment ça va ?</p>
+                </div>
+
+                <div class="hour-message">
+                  <p class="hour-text">00:00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer class="footer-sidebar">
+          <!-- moon icon -->
+          <div class="moon-icon-container icons">
+            <svg
+              class="moon-icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 3C10.8065 4.19347 10.136 5.81217 10.136 7.5C10.136 9.18783 10.8065 10.8065 12 12C13.1935 13.1935 14.8122 13.864 16.5 13.864C18.1878 13.864 19.8065 13.1935 21 12C21 13.78 20.4722 15.5201 19.4832 17.0001C18.4943 18.4802 17.0887 19.6337 15.4442 20.3149C13.7996 20.9961 11.99 21.1743 10.2442 20.8271C8.49836 20.4798 6.89472 19.6226 5.63604 18.364C4.37737 17.1053 3.5202 15.5016 3.17294 13.7558C2.82567 12.01 3.0039 10.2004 3.68509 8.55585C4.36628 6.91131 5.51983 5.50571 6.99987 4.51677C8.47991 3.52784 10.22 3 12 3Z"
+                stroke="#FFFFFF"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-opacity="0.4"
+              />
+            </svg>
+          </div>
+
+          <div class="spaces-wrapper">
+            <!-- Spaces Icons -->
+            <div class="spaces-icons-container icons">
+              <svg
+                class="spaces-icons icon-selected"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 16L22 12L18 8M6 8L2 12L6 16M14.5 4L9.5 20"
+                  stroke="#000"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Plus Icon -->
+          <div class="create-spaces-icon icons">
+            <svg
+              class="plus-icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 12H19M12 5V19"
+                stroke="#FFFFFF"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-opacity="0.4"
+              />
+            </svg>
+          </div>
+        </footer>
       </aside>
 
       <section class="screen"></section>
