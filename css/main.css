@@ -46,6 +46,10 @@ html {
   user-select: none;
 }
 
+h1 {
+  margin: 0;
+}
+
 .hidden {
   display: none !important;
 }
@@ -62,7 +66,8 @@ html {
 .search-icon path,
 .plus-icon path,
 .moon-icon path,
-.spaces-icons path {
+.spaces-icons path,
+.sun-icon path {
   stroke: var(--svg-color);
   stroke-opacity: 0.4;
 }
@@ -113,14 +118,6 @@ body {
   max-width: 331px;
   height: calc(100vh - 20px);
   padding: 10px 8px 0 0;
-
-  /* Fonts */
-  font-size: 13.5px;
-  font-weight: 600;
-  line-height: auto;
-  letter-spacing: -0.5%;
-  text-align: left;
-  color: var(--text-primary);
 }
 
 .sidebar-float {
@@ -208,6 +205,7 @@ body {
 
   /* Fonts */
   font-size: 12px;
+  font-weight: 400;
   line-height: auto;
   letter-spacing: -1%;
   color: var(--text-secondary);
@@ -327,7 +325,7 @@ body {
   align-items: start;
   gap: 5px;
   width: 100%;
-  height: 69vh;
+  height: 68.5vh;
 }
 
 .tab-container {
@@ -379,13 +377,41 @@ body {
   gap: 4px;
 }
 
+.profil-name {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: auto;
+  letter-spacing: -0.5%;
+  text-align: left;
+  color: var(--text-primary);
+}
+
+.message-profil {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: auto;
+  letter-spacing: -0.5%;
+  text-align: left;
+  color: var(--text-secondary);
+}
+
+.date-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: auto;
+  letter-spacing: -0.5%;
+  text-align: left;
+  color: var(--text-secondary);
+}
+
 .footer-sidebar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 
-  .moon-icon {
+  .moon-icon,
+  .sun-icon {
     fill: var(--svg-color);
   }
 }
@@ -402,4 +428,54 @@ body {
   flex-direction: column;
   justify-content: start;
   align-items: start;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 16px;
+}
+
+.title-welcome {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: auto;
+  letter-spacing: -0.5%;
+  text-align: left;
+  color: var(--text-primary);
+}
+
+.text-welcome {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: auto;
+  letter-spacing: -0.5%;
+  text-align: left;
+  color: var(--text-secondary);
+}
+
+.btn-welcome {
+  position: relative;
+  padding: 12px 24px;
+  border-radius: 12px;
+  background-image: var(--gradient);
+  color: var(--text-primary);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  /* Fonts */
+  font-size: 16px;
+  font-weight: 600;
+  line-height: auto;
+  letter-spacing: -0.5%;
+  text-align: left;
+
+  &:hover {
+    filter: hue-rotate(100deg);
+  }
 }
