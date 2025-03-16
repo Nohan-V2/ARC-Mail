@@ -1,9 +1,12 @@
 const $sidebar = document.querySelector(".sidebar");
 const $window = document.querySelector(".window");
+const $welcomeContianer = document.querySelector(".welcome-container");
+const $connectContainer = document.querySelector(".connect-container");
 
 const $searchBar = document.querySelector("#search");
-const $profilName = document.querySelectorAll(".profil-name");
+const $btnWelcome = document.querySelector(".btn-welcome");
 
+const $profilName = document.querySelectorAll(".profil-name");
 const $tabContainer = document.querySelectorAll(".tab-container");
 
 const $sidebarIcon = document.querySelector(".sidebar-icon-container");
@@ -36,7 +39,161 @@ $window.appendChild($sidebarTrigger);
 
 let hideTimeout;
 
-// Si click sur $sidebarIcon alors basculer la sidebar en mode flottant
+// Fonction de connexion à Message
+function connectToMessage() {
+  console.log("Connecting to Message...");
+  // Vérifier si l'API Messages est disponible (macOS/iOS)
+  if (window.webkit && window.webkit.messageHandlers) {
+    // Intégration avec l'API Messages sur macOS/iOS
+    console.log("Messages API detected, initiating connection...");
+    // Afficher une interface de confirmation
+    showConnectionModal("Message", "Connexion à Messages en cours...");
+  } else {
+    // Fallback pour les autres plateformes
+    showConnectionModal(
+      "Message",
+      "L'API Messages n'est pas disponible sur cette plateforme."
+    );
+  }
+}
+
+// Fonction de connexion à Gmail
+function connectToGmail() {
+  console.log("Connecting to Gmail...");
+  const clientId = "YOUR_GMAIL_CLIENT_ID";
+  const redirectUri = encodeURIComponent(
+    window.location.origin + "/gmail-callback.html"
+  );
+  const scope = encodeURIComponent(
+    "https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.send"
+  );
+  const responseType = "token";
+  const gmailAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}&prompt=consent`;
+
+  showConnectionModal(
+    "Gmail",
+    "Redirection vers la page d'authentification Gmail..."
+  );
+  // Ouvrir dans une nouvelle fenêtre pour l'authentification
+  window.open(gmailAuthUrl, "gmailAuthWindow", "width=600,height=700");
+}
+
+// Fonction de connexion à WhatsApp
+function connectToWhatsapp() {
+  console.log("Connecting to WhatsApp...");
+  // WhatsApp Business API nécessite une approbation et une configuration spécifique
+  const whatsappBusinessId = "YOUR_WHATSAPP_BUSINESS_ID";
+  const whatsappApiVersion = "v17.0";
+  const whatsappAuthUrl = `https://business.facebook.com/wa/manage/phone-numbers/?business_id=${whatsappBusinessId}&version=${whatsappApiVersion}`;
+
+  showConnectionModal(
+    "WhatsApp",
+    "Pour connecter WhatsApp, vous devez configurer l'API WhatsApp Business."
+  );
+  // Option pour ouvrir la page de configuration WhatsApp Business
+  if (
+    confirm("Voulez-vous ouvrir la page de configuration WhatsApp Business?")
+  ) {
+    window.open(whatsappAuthUrl, "_blank");
+  }
+}
+
+// Fonction de connexion à Snapchat
+function connectToSnapchat() {
+  console.log("Connecting to Snapchat...");
+  const snapchatClientId = "YOUR_SNAPCHAT_CLIENT_ID";
+  const redirectUri = encodeURIComponent(
+    window.location.origin + "/snapchat-callback.html"
+  );
+  const snapchatScopes = encodeURIComponent(
+    "https://auth.snapchat.com/oauth2/api/user.display_name https://auth.snapchat.com/oauth2/api/user.bitmoji.avatar"
+  );
+  const snapchatAuthUrl = `https://accounts.snapchat.com/accounts/oauth2/auth?client_id=${snapchatClientId}&redirect_uri=${redirectUri}&response_type=code&scope=${snapchatScopes}`;
+
+  showConnectionModal(
+    "Snapchat",
+    "Redirection vers la page d'authentification Snapchat..."
+  );
+  window.open(snapchatAuthUrl, "snapchatAuthWindow", "width=600,height=700");
+}
+
+// Fonction de connexion à Discord
+function connectToDiscord() {
+  console.log("Connecting to Discord...");
+  const clientId = "YOUR_DISCORD_CLIENT_ID";
+  const redirectUri = encodeURIComponent(
+    window.location.origin + "/discord-callback.html"
+  );
+  const scopes = encodeURIComponent(
+    "identify email connections guilds messages.read"
+  );
+  const discordAuthUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scopes}`;
+
+  showConnectionModal(
+    "Discord",
+    "Redirection vers la page d'authentification Discord..."
+  );
+  window.open(discordAuthUrl, "discordAuthWindow", "width=600,height=700");
+}
+
+// Fonction de connexion à Instagram
+function connectToInstagram() {
+  console.log("Connecting to Instagram...");
+  const instagramAppId = "YOUR_INSTAGRAM_APP_ID";
+  const redirectUri = encodeURIComponent(
+    window.location.origin + "/instagram-callback.html"
+  );
+  const instagramScopes = encodeURIComponent("user_profile,user_media");
+  const instagramAuthUrl = `https://api.instagram.com/oauth/authorize?client_id=${instagramAppId}&redirect_uri=${redirectUri}&scope=${instagramScopes}&response_type=code`;
+
+  showConnectionModal(
+    "Instagram",
+    "Redirection vers la page d'authentification Instagram..."
+  );
+  window.open(instagramAuthUrl, "instagramAuthWindow", "width=600,height=700");
+}
+
+// Fonction pour afficher une modal de connexion
+function showConnectionModal(serviceName, message) {
+  // Créer une modal simple pour informer l'utilisateur
+  const modal = document.createElement("div");
+  modal.className = "connection-modal";
+  modal.innerHTML = `
+    <div class="connection-modal-content">
+      <h3>Connexion à ${serviceName}</h3>
+      <p>${message}</p>
+      <div class="connection-loader"></div>
+      <button class="connection-close-btn">Fermer</button>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  // Gérer la fermeture de la modal
+  const closeBtn = modal.querySelector(".connection-close-btn");
+  closeBtn.addEventListener("click", () => {
+    document.body.removeChild(modal);
+  });
+
+  // Fermer automatiquement après 10 secondes si pas de redirection
+  setTimeout(() => {
+    if (document.body.contains(modal)) {
+      document.body.removeChild(modal);
+    }
+  }, 10000);
+}
+
+// Fonction pour gérer les callbacks d'authentification
+function handleAuthCallback(service, params) {
+  console.log(
+    `Handling ${service} authentication callback with params:`,
+    params
+  );
+  // Implémenter la logique pour échanger le code contre un token d'accès
+  // et stocker les informations d'authentification
+}
+
+// Basculer la sidebar en mode flottant au clic sur l'icône
 $sidebarIcon.addEventListener("click", () => {
   if ($sidebar.classList.contains("sidebar-float")) {
     // Revenir au mode normal
@@ -50,7 +207,7 @@ $sidebarIcon.addEventListener("click", () => {
   }
 });
 
-// Afficher la sidebar lorsque la souris entre dans la zone de déclenchement
+// Afficher la sidebar quand la souris entre dans la zone de déclenchement
 $sidebarTrigger.addEventListener("mouseenter", () => {
   if ($sidebar.classList.contains("sidebar-float")) {
     $sidebar.classList.add("visible");
@@ -58,7 +215,7 @@ $sidebarTrigger.addEventListener("mouseenter", () => {
   }
 });
 
-// Gérer l'affichage de la sidebar lorsque la souris entre dans la sidebar
+// Afficher la sidebar quand la souris entre dans celle-ci
 $sidebar.addEventListener("mouseenter", () => {
   if ($sidebar.classList.contains("sidebar-float")) {
     $sidebar.classList.add("visible");
@@ -66,7 +223,7 @@ $sidebar.addEventListener("mouseenter", () => {
   }
 });
 
-// Cacher la sidebar après 2 secondes lorsque la souris quitte la sidebar
+// Cacher la sidebar quand la souris la quitte
 $sidebar.addEventListener("mouseleave", () => {
   if ($sidebar.classList.contains("sidebar-float")) {
     hideTimeout = setTimeout(() => {
@@ -75,7 +232,7 @@ $sidebar.addEventListener("mouseleave", () => {
   }
 });
 
-// Si les $profilName contiennent les lettres de $searchBar alors afficher sinon mettre .hidden à leur $tabContainer
+// Filtrer les profils selon le texte saisi dans la barre de recherche
 $searchBar.addEventListener("input", (e) => {
   const searchTerm = e.target.value.toLowerCase();
 
@@ -88,12 +245,43 @@ $searchBar.addEventListener("input", (e) => {
   });
 });
 
-// Dark/Light mode
-$moonIcon.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  if (document.body.classList.contains("dark")) {
+// Fonction pour définir le thème selon la préférence
+function setTheme(darkMode) {
+  if (darkMode) {
+    document.body.classList.add("dark");
     $moonIcon.innerHTML = $sunIconTransform;
   } else {
+    document.body.classList.remove("dark");
     $moonIcon.innerHTML = $moonIconTransform;
   }
+}
+
+// Vérifier la préférence système au chargement
+function checkSystemThemePreference() {
+  const prefersDarkMode = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+  setTheme(prefersDarkMode);
+}
+
+// Écouter les changements de préférence système
+window
+  .matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", (e) => {
+    setTheme(e.matches);
+  });
+
+// Initialiser le thème selon la préférence système
+checkSystemThemePreference();
+
+// Basculer entre mode clair/sombre au clic
+$moonIcon.addEventListener("click", () => {
+  const isDarkMode = !document.body.classList.contains("dark");
+  setTheme(isDarkMode);
+});
+
+// Passer de l'écran d'accueil à l'écran de connexion
+$btnWelcome.addEventListener("click", () => {
+  $welcomeContianer.classList.add("hidden");
+  $connectContainer.classList.remove("hidden");
 });
