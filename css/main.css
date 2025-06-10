@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
 * {
   box-sizing: border-box;
@@ -32,7 +32,7 @@
   --text-primary: rgba(255, 255, 255, 0.7);
   --text-secondary: rgba(255, 255, 255, 0.4);
   --border: rgba(255, 255, 255, 0.12);
-  --svg-color: #FFF;
+  --svg-color: #fff;
 
   /* Gradient */
   --gradient: linear-gradient(to bottom, #662261, #14054d);
@@ -74,7 +74,7 @@ h1 {
 }
 
 .icons {
-  padding: 1px;
+  padding: 0px;
   cursor: pointer;
 }
 
@@ -98,7 +98,7 @@ body {
   align-items: start;
   width: 100%;
   height: 100vh;
-  padding: 10px;
+  padding: 8px;
   overflow: hidden;
   border: 1px solid var(--border);
   gap: 8px;
@@ -115,34 +115,34 @@ body {
   align-items: start;
   gap: 16px;
   width: 100%;
-  min-width: 221px;
-  max-width: 331px;
+  min-width: 220px;
+  max-width: 332px;
   height: calc(100vh - 20px);
-  padding: 10px 8px 0 0;
+  padding: 8px 8px 0 0;
 }
 
 .sidebar-float {
   position: absolute;
-  left: -350px;
-  top: 10px;
+  left: -352px;
+  top: 8px;
   transition: left 0.3s ease;
   z-index: 100;
   border-radius: 12px;
-  padding: 10px 8px;
+  padding: 8px 8px;
   background-image: var(--gradient);
   border: 1px solid var(--border);
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .sidebar-float.visible {
-  left: 10px;
+  left: 8px;
 }
 
 .sidebar-trigger {
   position: absolute;
   left: 0;
   top: 0;
-  width: 10px;
+  width: 8px;
   height: 100%;
   z-index: 99;
 }
@@ -279,12 +279,12 @@ body {
   display: flex;
   justify-content: start;
   align-items: center;
-  padding: 8px 6px;
+  padding: 8px 8px;
   gap: 4px;
   width: 100%;
 
   /* Fonts */
-  font-size: 13.5px;
+  font-size: 12px;
   font-weight: 600;
   line-height: auto;
   letter-spacing: -0.5%;
@@ -292,7 +292,7 @@ body {
   color: var(--text-secondary);
 
   .space-icon-container {
-    padding: 1px;
+    padding: 0px;
   }
 
   svg path {
@@ -306,7 +306,7 @@ body {
   cursor: pointer;
 
   /* Fonts */
-  font-size: 13.5px;
+  font-size: 12px;
   font-weight: 600;
   line-height: auto;
   letter-spacing: -0.5%;
@@ -324,7 +324,7 @@ body {
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  gap: 5px;
+  gap: 4px;
   width: 100%;
   height: 68.5vh;
 }
@@ -333,7 +333,7 @@ body {
   display: flex;
   justify-content: start;
   align-items: start;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
   border-radius: 12px;
   cursor: pointer;
@@ -367,7 +367,7 @@ body {
   justify-content: space-between;
   align-items: start;
   width: 100%;
-  padding: 12px 10px 12px 0;
+  padding: 12px 8px 12px 0;
 }
 
 .profil-tab {
@@ -388,7 +388,7 @@ body {
 }
 
 .message-profil {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: auto;
   letter-spacing: -0.5%;
@@ -397,7 +397,7 @@ body {
 }
 
 .date-text {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: auto;
   letter-spacing: -0.5%;
@@ -533,31 +533,39 @@ body {
 }
 
 .message {
-  background-color: #0078FF;
+  background-color: #0078ff;
   color: white;
 }
 
 .gmail {
-  background-color: #EA4335;
+  background-color: #ea4335;
   color: white;
 }
 
 .whatsapp {
-  background-color: #25D366;
+  background-color: #25d366;
   color: white;
 }
 
 .snapchat {
-  background-color: #FFFC00;
+  background-color: #fffc00;
   color: black;
 }
 
 .discord {
-  background-color: #5865F2;
+  background-color: #5865f2;
   color: white;
 }
 
 .instagram {
-  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5851db,
+    #833ab4,
+    #c13584,
+    #e1306c,
+    #fd1d1d
+  );
   color: white;
 }
